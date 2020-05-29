@@ -18,3 +18,23 @@ days.forEach(function(tiger){
 days.forEach(function(days,index){
     console.log(`starts with ${index+1}--${days}`)
 })
+
+
+
+// for loop
+// syntax for loop:-
+for(let index=0;index<=days.length;index++){
+    const element=days[index];
+    console.log(element);
+
+    // or
+
+    console.log(days[index]);
+}
+
+// it will print reverse
+
+for(index=days.length;index=>0;index--){
+    console.log(days[index]);
+}
+
