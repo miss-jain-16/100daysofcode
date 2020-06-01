@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>
+           
+            </title>
+    </head>
+    <body style ="background-color:  darkolivegreen;">
+        <h1 style="color: darkblue;">
+            <br>
+            This  tutorial is for style and colors
+        </br>
+        </h1>
+        <p style="color:blueviolet;background-color: coral;"> I love the blueviolet color
+<!-- change to any color -->
+        </p>
+    </body>
+</html>
