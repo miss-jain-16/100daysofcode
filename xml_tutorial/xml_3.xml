@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+<book category ="children">
+<bookid>123</bookid>
+<bookname>"mr hary johnson"</bookname>
+<price>$45.78</price>
+</book>
+<book category="web">
+<bookid>234</bookid>
+<bookname>Learning XML</bookname>
+<price>$67.89</price>
+</book>
+</bookstore>
+
+
+<!-- <bookid>, <price>, <bookname> have text content because they contain text (like 29.99).
+
+<bookstore> and <book> have element contents, because they contain elements.
+
+<book> has an attribute (category="children"). -->
