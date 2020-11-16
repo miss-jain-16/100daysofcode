@@ -1,0 +1,77 @@
+Table 1 : STUDIES
+PNAME (VARCHAR), SPLACE (VARCHAR), COURSE (VARCHAR), CCOST
+(NUMBER)
+Table 2 : SOFTWARE
+PNAME (VARCHAR), TITLE (VARCHAR), DEVIN (VARCHAR), SCOST
+(NUMBER), DCOST (NUMBER), SOLD (NUMBER)
+Table 3 : PROGRAMMER
+PNAME (VARCHAR), DOB (DATE), DOJ (DATE), SEX (CHAR), PROF1
+(VARCHAR), PROF2 (VARCHAR), SAL (NUMBER)
+LEGEND :
+PNAME – Programmer Name, SPLACE – Study Place, CCOST – Course Cost, DEVIN
+– Developed in, SCOST – Software Cost, DCOST – Development Cost, PROF1 –
+Proficiency 1 
+
+QUERIES:-
+1. Find out the selling cost average for packages developed in Oracle. 
+SOLN:- Select avg(SCOST) from SOFTWARE where DEVIN='ORACLE';
+
+2. Display the names, ages and experience of all programmers. 
+SOLN:- Select PNAME,TRUNC(MONTHS_BETWEEN(SYSDATE,DOB)/12) "AGE",TRUNC(MONTHS_BETWEEN(SYSDATE,DOJ)/12) "EXPERIENCE" FROM PROGRAMMER;
+
+3. Display the names of those who have done the PGDCA course. 
+SOLN:- Select PNAME from STUDIES where COURSE="PGDCA";
+
+4. What is the highest number of copies sold by a package? 
+SOLN:- Select max(SOLD) from SOFTWARE ;
+
+5. Display the names and date of birth of all programmers born in April.
+SOLN:- Select PNAME, DOB from PROGRAMMER where DOB LIKE "%APR%';
+
+6. Display the lowest course fee. 
+SOLN:- Select min(CCOST) from STUDIES;
+
+7. How many programmers have done the DCA course. 
+SOLN :- Select count(*) from STUDIES WHERE COURSE="DCA";
+
+8. How much revenue has been earned through the sale of packages developed in C. 
+SOLN:- SELECT SUM(SCOST*SOLD-DCOST) FROM SOFTWARE GROUP BY DEVIN HAVING DEVIN = 'C'; 
+ 
+9. Display the details of software developed by Rakesh.
+SOLN:- SELECT* FROM SOFTWARE WHERE PNAME="RAKESH";
+
+10. How many programmers studied at Pentafour. 
+SOLN:- SELECT COUNT(*) FROM STUDIES WHERE SPLACE="Pentafour";
+
+11. Display the details of packages whose sales crossed the 5000 mark. 
+SOLN:- SELECT* FROM SOFTWARE WHERE SCOST*SOLD-DCOST >5000;
+
+12.Find out the number of copies which should be sold in order to recover the
+development cost of each package.
+SOLN:-SELECT CEIL(DCOST/SCOST) FROM SOFTWARE;
+
+13.Display the details of packages for which the development cost has been
+recovered.
+SOLN:-SELECT * FROM SOFTWARE WHERE SCOST*SOLD >= DCOST; 
+
+14. What is the price of costliest software developed in VB?
+SOLN:- select max(scost) from software GROUP BY DEVIN HAVING DEVIN="VB";
+
+
+15. How many packages were developed in Oracle ? 
+SOLN:- . SELECT COUNT(*) FROM SOFTWARE WHERE DEVIN = 'ORACLE';
+
+16. How many programmers studied at PRAGATHI? 
+SOLN:-SELECT COUNT(*) FROM STUDIES WHERE SPLACE = 'PRAGATHI'; 
+
+17.  How many programmers paid 10000 to 15000 for the course? 
+SOLN:-  SELECT COUNT(*) FROM STUDIES WHERE CCOST BETWEEN 10000 AND 15000;
+
+18. Display the details of programmers knowing C. 
+SOLN:- SELECT * FROM PROGRAMMER WHERE PROF1 = 'C' OR PROF2 = 'C'; 
+
+19. How many programmers know either C or Pascal? 
+SOLN:- Select count(*) from programmer where  PROF1 IN ('C','PASCAL') OR PROF2 IN ('C','PASCAL');
+
+20. How old is the oldest male programmer?
+SOLN:- Select TRUNC(MAX(MONTHS_BETWEEN(SYSDATE,DOB)/12)) FROM PROGRAMMER WHERE SEX="M";
